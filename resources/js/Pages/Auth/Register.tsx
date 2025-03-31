@@ -5,6 +5,7 @@ import TextInput from '@/Components/Core/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -23,8 +24,13 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <AuthenticatedLayout>
+
             <Head title="Register" />
+          <div className={"p-8"}>
+            <div className="card bg-white shadow max-w-[420px] mx-auto">
+              <div className="card-body">
+
 
             <form onSubmit={submit}>
                 <div>
@@ -115,6 +121,9 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+              </div>
+            </div>
+          </div>
+        </AuthenticatedLayout>
     );
 }
